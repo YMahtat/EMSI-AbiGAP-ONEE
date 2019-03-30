@@ -1,0 +1,223 @@
+<div th:fragment="CONTENT_X">
+	<div class="col-md-6">
+		<div class="panel panel-warning card-view">
+			<div class="panel-heading">
+				<h6 class="panel-title txt-light">PREDICT INTPUT</h6>
+			</div>
+			<form>
+				<fieldset style="width: 100%; border: 2px groove(internal value);">
+					<div class="row">
+						<br>
+					</div>
+
+					<div style="text-align: center" class="form-group">
+						<label for="annee" class="control-label  text-center">ANNEE</label>
+						<input style="text-align: center;" id="annee" name="annee"
+							type="text" class="form-control" value="2019" required>
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="periode" class="control-label  text-center">PERIODE</label>
+						<input style="text-align: center;" id="periode" name="periode"
+							type="text" class="form-control" value="1" required>
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="CentreCouts" class="control-label  text-center">Centre Couts</label> <input style="text-align: center;" id="CentreCouts"
+							name="CentreCouts" type="text" class="form-control" value="c1" required>
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="NatureComptable" class="control-label  text-center">Nature
+							Comptable</label> <input style="text-align: center;" id="NatureComptable"
+							name="NatureComptable" type="text" class="form-control"
+							value="nc10" required>
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="TypeValeur" class="control-label  text-center">Type
+							Valeur</label> <input style="text-align: center;" id="TypeValeur"
+							name="TypeValeur" type="text" class="form-control" value="reel" required>
+					</div>
+
+					<div class="form-group">
+						<br>
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="CountValues" class="control-label  text-center">Count
+							Values</label> <input style="text-align: center;" id="CountValues"
+							name="CountValues" type="number" class="form-control" value="1" required>
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="SumValues" class="control-label  text-center">REAL
+							SUM VALUES</label> <input style="text-align: center;"
+							class="form-control" id="SumValues" name="SumValues" type="text">
+					</div>
+					<div class="form-group">
+						<br>
+					</div>
+					<div style="height: 15%;" class="form-group">
+						<br>
+						<br>
+					</div>
+
+					<div style="text-align: center" class="form-group">
+						<button type="button" class="btn btn-orange btn-anim" onclick="predict()">
+							<i class="icon-rocket"></i> <span class="btn-text">START
+								PREDICTION PROCESSING</span>
+						</button>
+					</div>
+				</fieldset>
+			</form>
+
+		</div>
+
+	</div>
+	<div class="col-md-6">
+		<div style="height: 807px" class="panel panel-primary card-view">
+			<div class="panel-heading">
+				<h6 class="panel-title txt-light">PREDICT RESULT</h6>
+			</div>
+			<form>
+				<fieldset style="width: 100%; border: 2px groove(internal value);">
+					<div class="row">
+						<br>
+					</div>
+
+					<div style="text-align: center" class="form-group">
+						<label for="annee" class="control-label  text-center">ANNEE</label>
+						<input style="text-align: center;" id="annee2" name="annee2"
+							type="text" class="form-control" value="-" disabled="disabled">
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="periode" class="control-label  text-center">PERIODE</label>
+						<input style="text-align: center;" id="periode2" name="periode2"
+							type="text" class="form-control" value="-" disabled="disabled">
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="CentreCouts" class="control-label  text-center">Centre
+							Couts</label> <input style="text-align: center;" id="CentreCouts2"
+							name="CentreCouts2" type="text" class="form-control" value="-" disabled="disabled">
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="NatureComptable" class="control-label  text-center">Nature
+							Comptable</label> <input style="text-align: center;" id="NatureComptable2"
+							name="NatureComptable2" type="text" class="form-control"
+							value="nc10" disabled="disabled">
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="TypeValeur" class="control-label  text-center">Type
+							Valeur</label> <input style="text-align: center;" id="TypeValeur2"
+							name="TypeValeur2" type="text" class="form-control" value="-" disabled="disabled">
+					</div>
+
+					<div class="form-group">
+						<br>
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="CountValues" class="control-label  text-center">Count
+							Values</label> <input style="text-align: center;" id="CountValues2"
+							name="CountValues2" type="number" class="form-control" value="-" disabled="disabled">
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="SumValues" class="control-label  text-center">REAL
+							SUM VALUES</label> <input style="text-align: center;"
+							class="form-control" id="SumValues2" name="SumValues2" type="text" disabled="disabled">
+					</div>
+					<div style="text-align: center" class="form-group">
+						<label for="SumValues" class="control-label  text-center">PREDICT SUM VALUES</label> 
+						<input style="text-align: center;"
+							class="form-control" id="predict2" name="predict2" type="text" disabled="disabled">
+					</div>
+					<div style="height: 2%;" class="form-group">
+					</div>
+					<div style="text-align: center" class="form-group">
+							<button type="button" class="btn btn-primary btn-anim" onClick="window.open('https://services.azureml.net/workspaces/3bcd00c03c1640e99c32bc8ccb345214/webservices/27dfa7b69658424aba02a90b3b0d25d3/endpoints/default/test/rrs?fromStudio=true', '_blank');">
+								<i class="icon-rocket"></i> <span class="btn-text">VOIR L'API SWAGGER AZURE-ML</span>
+							</button>
+						</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div id="loader" hidden>
+			<canvas class="loader"></canvas>
+		</div>
+		<style>
+				.loader 
+				{
+				  border: 16px solid #f3f3f3;
+				  border-radius: 50%;
+				  border-top: 16px solid #c55a11;
+				  border-bottom: 16px solid #c55a11;
+				  width: 120px;
+				  height: 120px;
+				  -webkit-animation: spin 2s linear infinite;
+				  animation: spin 2s linear infinite;
+				}
+				
+				@-webkit-keyframes spin {
+				  0% { -webkit-transform: rotate(0deg); }
+				  100% { -webkit-transform: rotate(360deg); }
+				}
+				
+				@keyframes spin {
+				  0% { transform: rotate(0deg); }
+				  100% { transform: rotate(360deg); }
+				}
+		</style>
+		<p style="color: blue" id="txt"></p>
+		<p style="color: red"  id="error"></p>
+	</div>
+</div>
+
+
+<div th:fragment="JAVASCRIPT">
+	<script>
+		function predict()
+		{
+			$("#loader").removeAttr("hidden");
+			var json = {
+						"Inputs": {
+										"input1": [
+										{
+											"annee": $("#annee").val(),
+											"periode": $("#periode").val(),
+											"CentreCouts": $("#CentreCouts").val(),
+											"NatureComptable": $("#NatureComptable").val(),
+											"TypeValeur": $("#TypeValeur").val(),
+											"CountValues": $("#CountValues").val(),
+											"SumValues": $("#SumValues").val()
+										}
+										]
+									},
+						"GlobalParameters": {}
+						};
+			$.ajax({
+						url: "/cachePredict",
+						type: 'post',
+						dataType: 'json',
+						contentType: 'application/json',
+						success: function (data) 
+						{
+							$("#txt").text(JSON.stringify(data));
+							$("#error").text("");
+							$("#annee2").val(data.Results.output1[0]["annee"]);
+							$("#periode2").val(data.Results.output1[0]["periode"]);
+							$("#CentreCouts2").val(data.Results.output1[0]["CentreCouts"]);
+							$("#NatureComptable2").val(data.Results.output1[0]["NatureComptable"]);
+							$("#TypeValeur2").val(data.Results.output1[0]["TypeValeur"]);
+							$("#CountValues2").val(data.Results.output1[0]["CountValues"]);
+							$("#SumValues2").val(data.Results.output1[0]["SumValues"]);
+							$("#predict2").val(data.Results.output1[0]["Scored Labels"]);
+							$("#loader").attr("hidden","hidden");
+						},
+						error : function()
+						{
+							$("#txt").text("");
+							$("#error").text("ERROR CONNECTION (TIMEOUT)");
+							$("#loader").attr("hidden","hidden");
+						},
+						timeout : 9000,
+						data: JSON.stringify(json)
+					});
+		}
+	</script>
+</div>
